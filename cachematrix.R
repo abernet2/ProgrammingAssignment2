@@ -28,14 +28,14 @@ makeCacheMatrix <- function(matrix = matrix()) {
 ## Returns the inverted matrix if already stored
 ## Otherwise it inverts the matrix then stores/returns
 
-cacheSolve <- function(cacheMatrix, ...) {
-   invertmatrix <- cacheMatrix$getinvert()
+cacheSolve <- function(cachematrix, ...) {
+   invertmatrix <- cachematrix$getinvert()
    
    if(!is.null(invertmatrix)) return(invertmatrix)
    
    # only solves if inverse isnt already cached
-   matrix <- cacheMatrix$get()
+   matrix <- cachematrix$get()
    invertmatrix <- solve(matrix)
-   cacheMatrix$setinvert(invertmatrix)
+   cachematrix$setinvert(invertmatrix)
    return(invertmatrix)
 }
